@@ -8,11 +8,11 @@
  *
  * Return: a pointer to the new node, or NULL on failure
  */
-heap_t *binary_tree_node(heap_t *parent, int value)
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-	heap_t *node;
+	binary_tree_t *node;
 
-	node = malloc(sizeof(heap_t));
+	node = malloc(sizeof(binary_tree_t));
 	if (node == NULL)
 		return (NULL);
 	node->left = NULL;

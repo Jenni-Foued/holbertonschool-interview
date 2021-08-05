@@ -6,7 +6,7 @@
  *
  * @tree: Pointer to the root of the tree to delete
  */
-static void _binary_tree_delete(heap_t *tree)
+static void _binary_tree_delete(binary_tree_t *tree)
 {
 	if (tree)
 	{
@@ -23,7 +23,7 @@ static void _binary_tree_delete(heap_t *tree)
  */
 int main(void)
 {
-	heap_t *root;
+	binary_tree_t *root;
 
 	root = binary_tree_node(NULL, 98);
 
