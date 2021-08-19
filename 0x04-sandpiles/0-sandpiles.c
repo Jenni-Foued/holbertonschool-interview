@@ -2,6 +2,27 @@
 #include <stdio.h>
 
 /**
+ * print_sandpile - Print 3x3 grid
+ * @grid: 3x3 grid
+ *
+ */
+void print_sandpile(int grid[3][3])
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+/**
  * check_stability - verify if sandpile is stable or not
  *
  * @grid: grid(sandpile) to verify
@@ -42,7 +63,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	while (stable == 0)
 	{
 		printf("=\n");
-    	print_grid(grid1);
+    	print_sandpile(grid1);
 		for (i = 0; i < 3; i++)
 		{
 			for (j = 0; j < 3; j++)
