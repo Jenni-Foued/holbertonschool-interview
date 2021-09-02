@@ -23,7 +23,7 @@ try:
 
         if counter == 10:
             print("File size: {:d}".format(total_size))
-            for k, v in dict_codes_counter.items():
+            for k, v in sorted(dict_codes_counter.items()):
                 if v != 0:
                     print("{}: {:d}".format(k, v))
             counter = 0
