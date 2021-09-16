@@ -13,7 +13,7 @@ int is_palindrome(unsigned long n)
 	unsigned long temp;
 
 	temp = n;
-	while (temp >= 0)
+	while (temp != 0)
 	{
 		nReverse *= 10 + (temp % 10);
 		temp /= 10;
