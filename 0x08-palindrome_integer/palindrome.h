@@ -5,4 +5,4 @@
 
 int is_palindrome(unsigned long n);
 
-#endif /* _PALINDROME_H_
+#endif /* _PALINDROME_H_*/
