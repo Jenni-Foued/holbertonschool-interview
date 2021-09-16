@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "palindrome.h"
 
 /**
@@ -13,22 +10,17 @@
 
 int is_palindrome(unsigned long n)
 {
-	char buffer[10];
-	int lenBuffer;
-	int i = 0;
+	int nReverse = 0;
+	int temp;
 
-	if (n / 10 == 0)
-		return (1);
-
-	itoa(n, buffer, 10);
-	lenBuffer = strlen(buffer) - 1;
-	
-	while (i < lenBuffer)
+	temp = n;
+	while (temp >= 0)
 	{
-		if (buffer[i] != buffer[lenBuffer])
-			return (0);
-		i++;
-		lenBuffer--;
+		nReverse *= 10 + (temp % 10);
+		temp /= 10;
 	}
-	return (1);
+
+	if (n == nReverse)
+		return (1);
+	return (0);
 }
