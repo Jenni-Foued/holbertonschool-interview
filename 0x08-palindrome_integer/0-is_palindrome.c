@@ -23,9 +23,9 @@ int is_palindrome(unsigned long n)
 	itoa(n, buffer, 10);
 	lenBuffer = strlen(buffer) - 1;
 	
-	while(i < lenBuffer)
+	while (i < lenBuffer)
 	{
-		if(buffer[i] != buffer[lenBuffer])
+		if (buffer[i] != buffer[lenBuffer])
 			return (0);
 		i++;
 		lenBuffer--;
