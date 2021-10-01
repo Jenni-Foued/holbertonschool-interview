@@ -11,7 +11,7 @@ void left_slide(int *line, size_t size)
 {
 	size_t i = 0, j = 0, k = 0;
 
-	while (i < size;)
+	while (i < size)
 	{
 		if (line[i] == 0)
 			for (; line[i] == 0;)
