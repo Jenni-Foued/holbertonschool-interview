@@ -1,1 +1,1 @@
-# <div align="center">holbertonschool-interview</div>
+# <div align="center">Interview Preparation - Algorithms</div>
