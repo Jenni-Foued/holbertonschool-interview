@@ -1,1 +1,1 @@
-<div align="cetner"># N Queens</div>
+<div align="center"># N Queens</div>
