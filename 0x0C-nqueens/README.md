@@ -1,6 +1,7 @@
 # <div align="center"> N Queens</div>
 
-The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. Write a program that solves the N queens problem.
+The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard.
+This program solves the N queens problem.
 
 - Usage: nqueens N
     If the user called the program with the wrong number of arguments, print Usage: nqueens N, followed by a new line, and exit with the status 1
