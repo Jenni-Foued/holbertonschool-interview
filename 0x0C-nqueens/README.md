@@ -12,7 +12,8 @@ This program solves the N queens problem.
     * One solution per line
     * Format: see example
 
-> jenni@ubuntu:~/0x08. N Queens$ ./0-nqueens.py 4
+'''
+jenni@ubuntu:~/0x08. N Queens$ ./0-nqueens.py 4
 [[0, 1], [1, 3], [2, 0], [3, 2]]
 [[0, 2], [1, 0], [2, 3], [3, 1]]
 jenni@ubuntu:~/0x08. N Queens$ ./0-nqueens.py 6
@@ -21,3 +22,4 @@ jenni@ubuntu:~/0x08. N Queens$ ./0-nqueens.py 6
 [[0, 3], [1, 0], [2, 4], [3, 1], [4, 5], [5, 2]]
 [[0, 4], [1, 2], [2, 0], [3, 5], [4, 3], [5, 1]]
 jenni@ubuntu:~/0x08. N Queens$ 
+'''
