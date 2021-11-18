@@ -2,6 +2,7 @@
 """Module to solve the N Queens Problem"""
 import sys
 
+
 def drawBoard(n, board):
     """
     This method draws a board:
@@ -13,7 +14,7 @@ def drawBoard(n, board):
             if i == j:
                 board[i, j] = 'D'
             else:
-                board[i,j] = 'F'
+                board[i, j] = 'F'
 
 
 if __name__ == "__main__":
@@ -25,7 +26,7 @@ if __name__ == "__main__":
 
     try:
         n = int(n)
-    except:
+    except ValueError:
         print('N must be a number')
         exit(1)
 
