@@ -36,6 +36,7 @@ int adv_bin(int *array, size_t first, size_t last, int value)
     
     for (i = first; i <= last; i++)
     {
+        printf("Searching in array: ");
         printf("%d", array[i]);
         if (i != last)
             printf(", ");
