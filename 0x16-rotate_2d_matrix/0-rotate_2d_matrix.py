@@ -7,15 +7,12 @@ def rotate_2d_matrix(matrix):
     This function rotates a 2d matrix
     90° degrees clockwise.
     """
-    n = len(matrix[0])
-    for i in range(0, n):
-        for j in range(0, i):
-            temp = matrix[i][j]
-            matrix[i][j] = matrix[j][i]
-            matrix[j][i] = temp
-
-    for i in range(0, n):
-        for j in range(0, n / 2):
-            temp = matrix[i][j]
-            matrix[i][j] = matrix[i][n - j - 1]
-            matrix[i][n - j - 1] = temp
+    index = 0
+    while index < len(matrix[0]):
+        for j in range(index, len(matrix[0])):
+            aux = matrix[index][j]
+            matrix[index][j] = matrix[j][index]
+            matrix[j][index] = aux
+        index += 1
+    for j in range(len(matrix[0])):
+        matrix[j].reverse()
