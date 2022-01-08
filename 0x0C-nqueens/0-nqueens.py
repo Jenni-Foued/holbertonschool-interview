@@ -4,8 +4,6 @@ import sys
 
 
 def print_sol(board):
-    global k
-    k = k + 1
     S = []
     for i in range(n):
         for j in range(n):
@@ -72,5 +70,4 @@ if __name__ == "__main__":
         print('N must be at least 4')
         exit(1)
 
-    k = 1
     solveNQueens()
