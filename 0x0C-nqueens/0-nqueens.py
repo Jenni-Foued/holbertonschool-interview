@@ -1,63 +1,60 @@
 #!/usr/bin/python3
-""" This script solves the N-Queen problem"""
-
-
+"""Module to solve the N Queens Problem"""
 import sys
 
 
-def check_moves(matrix, position_x, position_y):
+def safe(board, position_x, position_y):
     """
-    This function checks if a position (x, y) has
-    has a 1 horizontal, vertical or diagonal
+    This function checks if a position is safe
     """
-    for x in range(len(matrix)):
-        for y in range(len(matrix[0])):
-            # Checks for horizontal queens
-            if (matrix[x][position_y] == 1):
+    for x in range(len(board)):
+        for y in range(len(board[0])):
+            # Horizontal check
+            if (board[x][position_y] == 1):
                 return(0)
-            # Checks for vertical queens
-            if (matrix[position_x][y] == 1):
+            # Vertical check
+            if (board[position_x][y] == 1):
                 return(0)
-            # Diagonal Check for queens
+            # Diagonal check
             try:
-                if (matrix[position_x + x][position_y + x] == 1):
+                if (board[position_x + x][position_y + x] == 1):
                     return(0)
             except IndexError:
                 pass
             try:
                 if (position_x - x >= 0):
-                    if (matrix[position_x - x][position_y + x] == 1):
+                    if (board[position_x - x][position_y + x] == 1):
                         return(0)
             except IndexError:
                 pass
             try:
                 if (position_x - x >= 0 and position_y - x >= 0):
-                    if (matrix[position_x - x][position_y - x] == 1):
+                    if (board[position_x - x][position_y - x] == 1):
                         return(0)
             except IndexError:
                 pass
             try:
                 if (position_y - x >= 0):
-                    if (matrix[position_x + x][position_y - x] == 1):
+                    if (board[position_x + x][position_y - x] == 1):
                         return(0)
             except IndexError:
                 pass
     return(1)
 
 
-def put_coords(matrix, result):
+def put_coords(board, result):
     """
-    This function print a pair of coords to result
+    This function adds a pair of coords to result
     """
-    for i in range(0, len(matrix)):
-        for j in range(0, len(matrix[0])):
-            if (matrix[i][j] == 1):
+    for i in range(0, len(board)):
+        for j in range(0, len(board[0])):
+            if (board[i][j] == 1):
                 result[i][0] = i
                 result[i][1] = j
     return result
 
 
-def recursive_chess(matrix, columns, n):
+def solveNQueens(board, columns, n):
     """
     This function checks for every queen
     if there's a queen atacking if not print
@@ -65,31 +62,32 @@ def recursive_chess(matrix, columns, n):
     """
     if (columns == n):
         result = [[0 for x in range(2)] for y in range(n)]
-        print(put_coords(matrix, result))
+        print(put_coords(board, result))
         return
 
     for row in range(n):
-        if (check_moves(matrix, row, columns) == 1):
-            matrix[row][columns] = 1
-            recursive_chess(matrix, columns + 1, n)
-            matrix[row][columns] = 0
+        if (safe(board, row, columns) == 1):
+            board[row][columns] = 1
+            solveNQueens(board, columns + 1, n)
+            board[row][columns] = 0
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
+        print('Usage: nqueens N')
+        exit(1)
+
+    n = sys.argv[1]
 
     try:
-        n = int(sys.argv[1])
+        n = int(n)
     except ValueError:
-        print("N must be a number")
-        sys.exit(1)
+        print('N must be a number')
+        exit(1)
 
     if n < 4:
-        print("N must be at least 4")
-        sys.exit(1)
+        print('N must be at least 4')
+        exit(1)
 
-    matrix = [[0 for j in range(n)] for i in range(n)]
-    recursive_chess(matrix, 0, n)
+    board = [[0 for i in range(n)]for j in range()]
+    solveNQueens(board, 0, n)
