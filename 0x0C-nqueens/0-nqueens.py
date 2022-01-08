@@ -3,74 +3,57 @@
 import sys
 
 
-def safe(board, position_x, position_y):
-    """
-    This function checks if a position is safe
-    """
-    for x in range(len(board)):
-        for y in range(len(board[0])):
-            # Horizontal check
-            if (board[x][position_y] == 1):
-                return(0)
-            # Vertical check
-            if (board[position_x][y] == 1):
-                return(0)
-            # Diagonal check
-            try:
-                if (board[position_x + x][position_y + x] == 1):
-                    return(0)
-            except IndexError:
-                pass
-            try:
-                if (position_x - x >= 0):
-                    if (board[position_x - x][position_y + x] == 1):
-                        return(0)
-            except IndexError:
-                pass
-            try:
-                if (position_x - x >= 0 and position_y - x >= 0):
-                    if (board[position_x - x][position_y - x] == 1):
-                        return(0)
-            except IndexError:
-                pass
-            try:
-                if (position_y - x >= 0):
-                    if (board[position_x + x][position_y - x] == 1):
-                        return(0)
-            except IndexError:
-                pass
-    return(1)
+def print_sol(board):
+    global k
+    k = k + 1
+    S = []
+    for i in range(n):
+        for j in range(n):
+            if board[i][j] == 1:
+                S.append([i, j])
+    print(S)
 
 
-def put_coords(board, result):
-    """
-    This function adds a pair of coords to result
-    """
-    for i in range(0, len(board)):
-        for j in range(0, len(board[0])):
-            if (board[i][j] == 1):
-                result[i][0] = i
-                result[i][1] = j
-    return result
+def isSafe(board, row, col):
+    for i in range(col):
+        if (board[row][i]):
+            return False
+    i = row
+    j = col
+    while i >= 0 and j >= 0:
+        if(board[i][j]):
+            return False
+        i -= 1
+        j -= 1
+    i = row
+    j = col
+    while j >= 0 and i < n:
+        if(board[i][j]):
+            return False
+        i = i + 1
+        j = j - 1
+    return True
 
 
-def solveNQueens(board, columns, n):
-    """
-    This function checks for every queen
-    if there's a queen atacking if not print
-    the n queens position
-    """
-    if (columns == n):
-        result = [[0 for x in range(2)] for y in range(n)]
-        print(put_coords(board, result))
+def solving(board, col):
+    if (col == n):
+        print_sol(board)
+        return True
+    res = False
+    for i in range(n):
+        if (isSafe(board, i, col)):
+            board[i][col] = 1
+            res = solving(board, col + 1) or res
+            board[i][col] = 0
+    return res
+
+
+def solveNQueens():
+    board = [[0 for j in range(n)]for i in range(n)]
+    if (solving(board, 0) is False):
+        print("Solution does not exist")
         return
-
-    for row in range(n):
-        if (safe(board, row, columns) == 1):
-            board[row][columns] = 1
-            solveNQueens(board, columns + 1, n)
-            board[row][columns] = 0
-
+    return
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -89,5 +72,5 @@ if __name__ == "__main__":
         print('N must be at least 4')
         exit(1)
 
-    board = [[0 for i in range(n)]for j in range()]
-    solveNQueens(board, 0, n)
+    k = 1
+    solveNQueens()
