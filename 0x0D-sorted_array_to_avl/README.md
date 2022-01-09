@@ -1,4 +1,4 @@
-<div align="center">Array to AVL</div>
+# <div align="center">Array to AVL</div>
 
 This C program  builds an AVL tree from an array as the example shows below:
 
