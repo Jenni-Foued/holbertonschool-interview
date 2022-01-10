@@ -57,7 +57,6 @@ avl_t *array_to_avl_rec(int *array, size_t start, size_t end,
 	return (root);
 }
 
-
 /**
  * sorted_array_to_avl -  builds an AVL tree from an array
  * 
