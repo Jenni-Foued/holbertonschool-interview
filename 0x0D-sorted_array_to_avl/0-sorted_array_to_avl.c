@@ -25,7 +25,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 }
 
 /**
- * insert_node_AVL - builds an AVL tree from an array
+ * array_to_avl_rec - builds an AVL tree from an array
  *
  * @array: The array to be printed
  * @parent: A pointer to the parent node of the node to create
