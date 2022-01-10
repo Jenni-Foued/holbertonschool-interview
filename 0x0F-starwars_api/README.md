@@ -5,7 +5,7 @@ A script that prints all characters of a Star Wars movie:
 - Example
 
 ```
-alexa@ubuntu:~/0x0F$ ./0-starwars_characters.js 3
+jenni@ubuntu:~/0x0F$ ./0-starwars_characters.js 3
 Luke Skywalker
 C-3PO
 R2-D2
@@ -26,5 +26,5 @@ Arvel Crynyd
 Wicket Systri Warrick
 Nien Nunb
 Bib Fortuna
-alexa@ubuntu:~/0x0F$
+jenni@ubuntu:~/0x0F$
 ```
