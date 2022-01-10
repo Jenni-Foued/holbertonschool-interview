@@ -1,6 +1,10 @@
 # <div align="center">0x0F-starwars_api</div>
 
-A script that prints all characters of a Star Wars movie:
+A script that prints all characters of a Star Wars movie.
+
+- Usage
+
+./0-starwars_characters.js Movie_ID
 
 - Example
 
