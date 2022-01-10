@@ -25,7 +25,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 }
 
 /**
- * array_to_avl_rec - builds an AVL tree from an array
+ * builder - builds an AVL tree from an array
  *
  * @array: The array to be printed
  * @parent: A pointer to the parent node of the node to create
@@ -34,8 +34,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
  *
  * Return: binary tree on success, NULL on failure
  */
-avl_t *array_to_avl_rec(int *array, size_t start, size_t end,
-						avl_t *parent)
+avl_t *builder(int *array, size_t start, size_t end, avl_t *parent)
 {
 	size_t mid;
 	avl_t *root;
@@ -49,10 +48,10 @@ avl_t *array_to_avl_rec(int *array, size_t start, size_t end,
 		return (NULL);
 
 	if (mid != start)
-		root->left = array_to_avl_rec(array, start, mid - 1, root);
+		root->left = builder(array, start, mid - 1, root);
 
 	if (mid != end)
-		root->right = array_to_avl_rec(array, mid + 1, end, root);
+		root->right = builder(array, mid + 1, end, root);
 
 	return (root);
 }
@@ -72,6 +71,6 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array || !size)
 		return (NULL);
 
-	root = array_to_avl_rec(array, 0, size - 1, NULL);
+	root = builder(array, 0, size - 1, NULL);
 	return (root);
 }
