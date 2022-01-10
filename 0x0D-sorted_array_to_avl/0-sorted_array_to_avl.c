@@ -10,7 +10,6 @@
  * Return: Pointer to the created node or
  * NULL if the function fails
  **/
-
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
 	binary_tree_t *node;
@@ -64,7 +63,8 @@ avl_t *array_to_avl_rec(int *array, size_t start, size_t end,
  * 
  * @array: Sorted array to be used
  * @size: Array size 
- * Return: Pointer to the root node of the created AVL tree, or NULL on failure
+ * Return: Pointer to the root node of the created AVL tree
+ * or NULL on failure
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
