@@ -7,7 +7,6 @@ This module contains one function def rain()
 def rain(walls):
 	"""Calculate the total amount of rainwater retained"""
 	drops = 0
-
 	if (walls):
 		for i in range(1, len(walls) - 1):
 			left_wall = walls[i]
