@@ -13,7 +13,7 @@
 int advanced_binary(int *array, size_t size, int value)
 {
 	if (array && size > 1)
-		return (recursion_advanced_binary(array, 0, size - 1, value));
+		return (adv_bin(array, 0, size - 1, value));
 }
 
 /**
