@@ -1,33 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "search_algos.h"
 
 /**
  * advanced_binary - searches for a value in a sorted array of integers
- * using the Binary search algorithm
- *
- * @array: pointer to the first element of the array to search in
- * @size: number of elements in array
- * @value: value to search for
- *
- * Return: index of value or (-1) if value does not exist
-*/
+ * @array: is a pointer to the first element of the array to search in
+ * @size: is the number of elements in array
+ * @value: is the value to search for
+ * Return: return the index where value is located, -1 otherwise
+ */
 int advanced_binary(int *array, size_t size, int value)
 {
 	if (array && size > 1)
-		return (adv_bin(array, 0, size - 1, value));
+		return (recursion_advanced_binary(array, 0, size - 1, value));
+
+	return (-1);
 }
 
 /**
- * adv_bin - searches for a value in a sorted array of integers
- * using the Binary search algorithm
- *
- * @array: pointer to the first element of the array to search in
- * @first: first index of the array to search in
- * @last: last index of the array to search in
- * @value: value to search for
- *
- * Return: index of value or (-1) if value does not exist
-*/
-int adv_bin(int *array, size_t first, size_t last, int value)
+ * recursion_advanced_binary - search for a value in an array of integers
+ * @array: is a pointer to the first element of the array to search in
+ * @first: is the first element of the array
+ * @last: is the last element of the array
+ * @value: is the value to search for
+ * Return: return the index where value is located, -1 otherwise
+ */
+int recursion_advanced_binary(int *array, int first, int last, int value)
 {
 	int middle = (first + last) / 2;
 	int i;
@@ -49,7 +47,7 @@ int adv_bin(int *array, size_t first, size_t last, int value)
 		return (first);
 
 	if (array[middle] < value)
-		return (adv_bin(array, middle + 1, last, value));
+		return (recursion_advanced_binary(array, middle + 1, last, value));
 
-	return (adv_bin(array, first, middle, value));
+	return (recursion_advanced_binary(array, first, middle, value));
 }
