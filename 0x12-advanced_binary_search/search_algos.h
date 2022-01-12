@@ -1,6 +1,10 @@
 #ifndef SEARCH_ALGOS_H
 #define SEARCH_ALGOS_H
 
-int advanced_binary(int *array, size_t size, int value);
+#include <stdio.h>
+#include <stdlib.h>
 
-#endif
+int advanced_binary(int *array, size_t size, int value);
+int adv_bin(int *array, int first, int last, int value);
+
+#endif /* SEARCH_ALGOS_H */

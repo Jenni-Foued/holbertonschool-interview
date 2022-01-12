@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include "search_algos.h"
 
 /**
  * advanced_binary - searches for a value in a sorted array of integers
@@ -14,9 +12,8 @@
 */
 int advanced_binary(int *array, size_t size, int value)
 {
-    if (array == NULL || size == 0)
-        return (-1);
-    return adv_bin(array, 0, size - 1, value);
+	if (array && size > 1)
+		return (recursion_advanced_binary(array, 0, size - 1, value));
 }
 
 /**
@@ -32,28 +29,27 @@ int advanced_binary(int *array, size_t size, int value)
 */
 int adv_bin(int *array, size_t first, size_t last, int value)
 {
-    size_t middle, i;
-    
-    for (i = first; i <= last; i++)
-    {
-        printf("Searching in array: ");
-        printf("%d", array[i]);
-        if (i != last)
-            printf(", ");
-        else
-            printf("\n");
-    }
-    middle = round((first + last) / 2);
-    
-    if (last > first)
-    {
-        if (value == array[first])
-            return (first);
-        else if (value > array[middle])
-            return (adv_bin(array, middle + 1, last, value));
-    
-        else
-            return (adv_bin(array,first, middle, value));
-    }
-        return (-1);
+	int middle = (first + last) / 2;
+	int i;
+
+	if (first > last)
+		return (-1);
+
+	printf("Searching in array: ");
+	for (i = first; i <= last; i++)
+	{
+		printf("%d", array[i]);
+		if (i < last)
+			printf(", ");
+		else
+			printf("\n");
+	}
+
+	if (array[first] == value)
+		return (first);
+
+	if (array[middle] < value)
+		return (recursion_advanced_binary(array, middle + 1, last, value));
+
+	return (recursion_advanced_binary(array, first, middle, value));
 }
