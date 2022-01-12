@@ -49,7 +49,7 @@ int adv_bin(int *array, size_t first, size_t last, int value)
 		return (first);
 
 	if (array[middle] < value)
-		return (recursion_advanced_binary(array, middle + 1, last, value));
+		return (adv_bin(array, middle + 1, last, value));
 
-	return (recursion_advanced_binary(array, first, middle, value));
+	return (adv_bin(array, first, middle, value));
 }
