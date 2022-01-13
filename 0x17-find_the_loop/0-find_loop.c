@@ -3,7 +3,8 @@
 /**
  * find_listint_loop - checks if a singly linked list has a cycle
  * @head: pointer to head of list
- * Return: The address of the node where the loop starts, or NULL if there is no loop
+ * Return: The address of the node where the loop starts
+ * or NULL if there is no loop
  */
 listint_t *find_listint_loop(listint_t *head)
 {
