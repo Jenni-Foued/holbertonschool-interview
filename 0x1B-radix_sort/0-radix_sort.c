@@ -16,7 +16,7 @@ int maxInt(int *array, size_t size)
 	for (; i < size; i++)
 		if (max < array[i])
 			max = array[i];
-	
+
 	return (max);
 }
 
