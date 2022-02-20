@@ -21,62 +21,34 @@ int maxInt(int *array, size_t size)
 }
 
 /**
- * radix - sort an array according to a place
- *
- * @array: array to be sorted.
- * @size: size of array.
- * @place: place of the sort.
- */
-void radix(int *array, size_t size, size_t place)
+* countSort - counting sort according to the digit represented by exp
+* @array: array to be sorted
+* @n: size of array
+* @exp: exponential
+*/
+void countSort(int *array, int n, int exp)
 {
-	int max, *buckets, *output;
-	size_t i = 1;
-	int current;
+	int *output, i, count[10] = { 0 };
 
-	int output = malloc(size * sizeof(int));
+	output = malloc(sizeof(int) * n);
 	if (output == NULL)
-	{
-		fprintf(stderr, "malloc failed\n");
-		return (-1);
-	}
+		return;
 
-	max = (array[0] / place) % 10;
+	for (i = 0; i < n; i++)
+		count[(array[i] / exp) % 10]++;
 
-	for (; i < size; i++)
-	{
-		current = (array[i] / place) % 10;
-		if (current > max)
-			max = array[i];
-	}
-
-	int buckets = malloc((max + 1) * sizeof(int));
-	if (buckets == NULL)
-	{
-		fprintf(stderr, "malloc failed\n");
-		return (-1);
-	}
-
-	for (i = 0; i < max; i++)
-	{
-		buckets[i] = 0;
-	}
-
-	for (i = 0; i < size; i++)
-		buckets[(array[i] / place) % 10]++;
-	
 	for (i = 1; i < 10; i++)
-		buckets[i] += buckets[i - 1];
+		count[i] += count[i - 1];
 
-	for (i = size - 1; i >= 0; i--)
+	for (i = n - 1; i >= 0; i--)
 	{
-		output[buckets[(array[i] / place) % 10] - 1] = array[i];
-		buckets[(array[i] / place) % 10]--;
+		output[count[(array[i] / exp) % 10] - 1] = array[i];
+		count[(array[i] / exp) % 10]--;
 	}
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < n; i++)
 		array[i] = output[i];
 	free(output);
-	free(buckets);
 }
 
 /**
@@ -96,7 +68,7 @@ void radix_sort(int *array, size_t size)
 
 	max = maxInt(array, size);
 
-	for (; i < max; i *= 10)
+	for (; max / i > 0; i *= 10)
 	{
 		radix(array, size, i);
 		print_array(array, size);
