@@ -70,7 +70,7 @@ void radix_sort(int *array, size_t size)
 
 	for (; max / i > 0; i *= 10)
 	{
-		radix(array, size, i);
+		countSort(array, size, i);
 		print_array(array, size);
 	}
 }
